@@ -11,7 +11,7 @@ const CommentForm = ({ mutate }) => {
           variables: { content: e.target.value },
         });
         e.target.value = '';
-        window.location.reload() // Temporal solution, should be deleted after the socket implementation it's ready
+        // window.location.reload() // Temporal solution, should be deleted after the socket implementation it's ready
       } catch(exp) {
         alert(`Ocurrio un error \n ${exp}`);
       } 
