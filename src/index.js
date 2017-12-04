@@ -12,7 +12,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 const httpLink = new HttpLink({ uri: 'http://0.0.0.0:4000/graphql' });
 
-// const wsClient = SubscriptionClient();
 const wsLink = new WebSocketLink({
   uri: 'ws://0.0.0.0:4000/subscriptions',
   options: {
@@ -22,7 +21,7 @@ const wsLink = new WebSocketLink({
 const link = split(
   ({ query }) => {
     const { kind, operation } = getMainDefinition(query);
-    return kind == 'OperationDefinition' && operation == 'subscription';
+    return kind === 'OperationDefinition' && operation === 'subscription';
   },
   wsLink,
   httpLink

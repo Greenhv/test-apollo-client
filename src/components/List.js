@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CommentList = ({ data }) => (
+const CommentList = ({ data, ItemComponent }) => (
   <ul>
-    {data.map(value  => <li key={value.id}>{value.content}</li>)}
+    {data.map(value  => <ItemComponent key={value.id} id={value.id}>{value.content}</ItemComponent>)}
   </ul>
 );
 
